@@ -17,7 +17,7 @@ function CoursesPage() {
       <Link className="btn btn-primary" to="/course">
         Add Course
       </Link>
-      <CourseList courses={courses} />;
+      <CourseList courses={courses} />
     </>
   );
 }
