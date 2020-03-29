@@ -2,11 +2,12 @@ import React from "react";
 
 import TextInput from "./common/TextInput";
 
-function CourseForm({ course, onChange, onSubmit }) {
+function CourseForm({ course, errors, onChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
       <TextInput
         id="title"
+        error={errors.title}
         label="Title"
         name="title"
         onChange={onChange}
@@ -28,10 +29,14 @@ function CourseForm({ course, onChange, onSubmit }) {
             <option value="2">Scott Allen</option>
           </select>
         </div>
+        {errors.authorId && (
+          <div className="alert alert-danger">{errors.authorId}</div>
+        )}
       </div>
 
       <TextInput
         id="category"
+        error={errors.category}
         label="Category"
         name="category"
         onChange={onChange}
