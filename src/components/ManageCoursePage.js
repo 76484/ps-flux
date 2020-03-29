@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { saveCourse } from "../api/courseApi";
 import CourseForm from "./CourseForm";
 
-const ManageCoursePage = ({ match }) => {
+const ManageCoursePage = ({ history, match }) => {
   const [course, setCourse] = useState({
     id: null,
     authorId: null,
@@ -19,7 +19,9 @@ const ManageCoursePage = ({ match }) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    saveCourse(course);
+    saveCourse(course).then(() => {
+      history.push("/courses");
+    });
   };
 
   return (
