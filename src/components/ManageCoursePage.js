@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 import { saveCourse } from "../api/courseApi";
 import CourseForm from "./CourseForm";
@@ -21,6 +22,7 @@ const ManageCoursePage = ({ history, match }) => {
 
     saveCourse(course).then(() => {
       history.push("/courses");
+      toast.success("Course saved.");
     });
   };
 
