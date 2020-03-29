@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { saveCourse } from "../api/courseApi";
 import CourseForm from "./CourseForm";
 
-const ManageCoursePage = ({ history, match }) => {
+const ManageCoursePage = ({ history }) => {
   const [course, setCourse] = useState({
     id: null,
     authorId: null,
