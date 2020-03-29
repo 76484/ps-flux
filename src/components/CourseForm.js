@@ -2,9 +2,9 @@ import React from "react";
 
 import TextInput from "./common/TextInput";
 
-function CourseForm({ course, onChange }) {
+function CourseForm({ course, onChange, onSubmit }) {
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <TextInput
         id="title"
         label="Title"

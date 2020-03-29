@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { saveCourse } from "../api/courseApi";
 import CourseForm from "./CourseForm";
 
 const ManageCoursePage = ({ match }) => {
@@ -15,10 +16,20 @@ const ManageCoursePage = ({ match }) => {
     setCourse({ ...course, [target.name]: target.value });
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    saveCourse(course);
+  };
+
   return (
     <>
       <h2>Manage Course</h2>
-      <CourseForm course={course} onChange={handleChange} />
+      <CourseForm
+        course={course}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
     </>
   );
 };
