@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
+import { Redirect } from "react-router-dom";
 
 import AboutPage from "./AboutPage";
 import CoursesPage from "./CoursesPage";
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" exact component={HomePage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/courses" component={CoursesPage} />
+        <Redirect from="/about-page" to="/about" />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
