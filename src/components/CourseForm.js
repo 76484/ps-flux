@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import TextInput from "./common/TextInput";
+import CoursesPage from "./CoursesPage";
 
 function CourseForm({ course, errors, onChange, onSubmit }) {
   return (
@@ -47,5 +49,12 @@ function CourseForm({ course, errors, onChange, onSubmit }) {
     </form>
   );
 }
+
+CourseForm.propTypes = {
+  course: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
+};
 
 export default CourseForm;
