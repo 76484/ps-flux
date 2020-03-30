@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function CourseList({ courses }) {
+function CourseList({ courses, onDeleteCourse }) {
   return (
     <>
       <h2>Courses</h2>
@@ -12,6 +12,7 @@ function CourseList({ courses }) {
             <th>Title</th>
             <th>Author ID</th>
             <th>Category</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +24,15 @@ function CourseList({ courses }) {
                 </td>
                 <td>{course.authorId}</td>
                 <td>{course.category}</td>
+                <td>
+                  <button
+                    className="btn btn-outline-danger"
+                    onClick={() => onDeleteCourse(course.id)}
+                    type="button"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
@@ -40,7 +50,8 @@ CourseList.propTypes = {
       category: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired
     })
-  ).isRequired
+  ).isRequired,
+  onDeleteCourse: PropTypes.func.isRequired
 };
 
 export default CourseList;
